@@ -12,11 +12,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '@environment/environment';
 
 // COMPONENT
-import { Tab1Page } from './tab1.page';
+import { HomePage } from './home.page';
 
 // MODULES
 import { ComponentsModule } from '@modules/components.module';
-import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { HomePageRoutingModule } from './home-routing.module';
 
 @NgModule({
   imports: [
@@ -25,7 +25,7 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     FormsModule,
     HttpClientModule,
     ComponentsModule,
-    Tab1PageRoutingModule,
+    HomePageRoutingModule,
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
@@ -34,10 +34,10 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
       }
     })
   ],
-  declarations: [Tab1Page],
+  declarations: [HomePage],
   providers: [TranslateStore]
 })
-export class Tab1PageModule {}
+export class HomePageModule {}
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, environment.pathTranslate, '.json');
