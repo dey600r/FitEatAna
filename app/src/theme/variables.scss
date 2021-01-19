@@ -83,40 +83,47 @@
   --ion-color-snow-shade: #e6e4e4;
   --ion-color-snow-tint: #e6e4e4;
 
+  --ion-color-sky: #008eaa;
+  --ion-color-sky-rgb: 250,250,250;
+  --ion-color-sky-contrast: #ffffff;
+  --ion-color-sky-contrast-rgb: 255,255,255;
+  --ion-color-sky-shade: #007188;
+  --ion-color-sky-tint: #00aacc;
+
   /* THEME FITBIT */
   --ion-background-color: #fafafa;
-    --ion-background-color-rgb: 250,250,250;
+  --ion-background-color-rgb: 250,250,250;
 
-    --ion-text-color: #576569;
-    --ion-text-color-rgb: 87,101,105;
+  --ion-text-color: #576569;
+  --ion-text-color-rgb: 87,101,105;
 
-    --ion-color-step-50: #f2f3f3;
-    --ion-color-step-100: #eaebec;
-    --ion-color-step-150: #e2e4e4;
-    --ion-color-step-200: #d9dcdd;
-    --ion-color-step-250: #d1d5d6;
-    --ion-color-step-300: #c9cdcf;
-    --ion-color-step-350: #c1c6c7;
-    --ion-color-step-400: #b9bec0;
-    --ion-color-step-450: #b1b7b9;
-    --ion-color-step-500: #a9b0b2;
-    --ion-color-step-550: #a0a8aa;
-    --ion-color-step-600: #98a1a3;
-    --ion-color-step-650: #90999c;
-    --ion-color-step-700: #889295;
-    --ion-color-step-750: #808a8d;
-    --ion-color-step-800: #788386;
-    --ion-color-step-850: #6f7b7f;
-    --ion-color-step-900: #677478;
-    --ion-color-step-950: #5f6c70;
+  --ion-color-step-50: #f2f3f3;
+  --ion-color-step-100: #eaebec;
+  --ion-color-step-150: #e2e4e4;
+  --ion-color-step-200: #d9dcdd;
+  --ion-color-step-250: #d1d5d6;
+  --ion-color-step-300: #c9cdcf;
+  --ion-color-step-350: #c1c6c7;
+  --ion-color-step-400: #b9bec0;
+  --ion-color-step-450: #b1b7b9;
+  --ion-color-step-500: #a9b0b2;
+  --ion-color-step-550: #a0a8aa;
+  --ion-color-step-600: #98a1a3;
+  --ion-color-step-650: #90999c;
+  --ion-color-step-700: #889295;
+  --ion-color-step-750: #808a8d;
+  --ion-color-step-800: #788386;
+  --ion-color-step-850: #6f7b7f;
+  --ion-color-step-900: #677478;
+  --ion-color-step-950: #5f6c70;
 
-    --ion-item-background: #00364b;
+  --ion-item-background: #00364b;
 
-    --ion-toolbar-background: #002a3a;
+  --ion-toolbar-background: #002a3a;
 
-    --ion-tab-bar-background: #002a3a;
+  --ion-tab-bar-background: #002a3a;
 
-    --ion-card-background: #00364b;
+  --ion-card-background: #00364b;
 }
 
 @media (prefers-color-scheme: dark) {

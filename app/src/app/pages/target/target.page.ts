@@ -5,11 +5,11 @@ import { Platform } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-tab3',
-  templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+  selector: 'app-target',
+  templateUrl: 'target.page.html',
+  styleUrls: ['target.page.scss']
 })
-export class Tab3Page {
+export class TargetPage {
 
   constructor(private platform: Platform,
               private translator: TranslateService) {

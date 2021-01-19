@@ -1,7 +1,7 @@
 {
     "COMMON": {
-        "tab1": "Soy tab 1",
-        "tab2": "Soy tab 2",
-        "tab3": "Soy tab 3"
+        "DAILY": "Diario",
+        "TARGET": "Objetivo",
+        "PROFILE": "Perfil"
     }
 }

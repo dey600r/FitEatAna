@@ -26,6 +26,7 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 
+/** COLOR CUSTOM **/
 .ion-color-snow {
     --ion-color-base: var(--ion-color-snow);
     --ion-color-base-rgb: var(--ion-color-snow-rgb);
@@ -33,4 +34,13 @@
     --ion-color-contrast-rgb: var(--ion-color-snow-contrast-rgb);
     --ion-color-shade: var(--ion-color-snow-shade);
     --ion-color-tint: var(--ion-color-snow-tint);
+}
+
+.ion-color-sky {
+    --ion-color-base: var(--ion-color-sky);
+    --ion-color-base-rgb: var(--ion-color-sky-rgb);
+    --ion-color-contrast: var(--ion-color-sky-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-sky-contrast-rgb);
+    --ion-color-shade: var(--ion-color-sky-shade);
+    --ion-color-tint: var(--ion-color-sky-tint);
 }
