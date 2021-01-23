@@ -1,17 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="snow" icon="chevron-back-outline" defaultHref="tabs/home"></ion-back-button>
+      <ion-title color="snow">{{ 'COMMON.TARGET' | translate }}</ion-title>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-title color="snow">Semana 2</ion-title>
+      <ion-button color="snow">
+        <ion-icon color="snow" slot="icon-only" name="today-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ 'COMMON.TARGET' | translate }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-info dataInfo="COMMON.TARGET"></app-info>
+  <div class="content-card">
+    <div class="content-card-graphic">
+      <div class="content-column">
+        <ion-icon color="sky" slot="start" size="small" name="disc-outline"></ion-icon>
+        <ion-title size="large" color="sky">Perder</ion-title>
+      </div>
+      <ion-title size="small" color="sky">PROGRESO DEL OBJETIVO</ion-title>
+      <div class="content-column">
+        <ion-title size="small">0.7</ion-title>
+        <ion-title size="small">10.8</ion-title>
+      </div>
+      <div class="content-column">
+        <ion-title size="small">Perdido desde 01/01/2020</ion-title>
+        <ion-title size="small">Perdido desde 01/01/2020</ion-title>
+      </div>
+    </div>
+    <ion-button color="sky" [routerLink]="['/edit-target']" fill="clear"> {{ 'TARGET.editTarget' | translate}}</ion-button>
+  </div>
+
 </ion-content>

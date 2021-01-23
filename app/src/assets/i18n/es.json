@@ -3,5 +3,8 @@
         "DAILY": "Diario",
         "TARGET": "Objetivo",
         "PROFILE": "Perfil"
+    },
+    "TARGET": {
+        "editTarget": "Editar objetivo"
     }
 }

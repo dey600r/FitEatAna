@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./shared/components/tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'edit-target',
+    loadChildren: () => import('./pages/edit-target/edit-target.module').then( m => m.EditTargetPageModule)
   }
 ];
 @NgModule({

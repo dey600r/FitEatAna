@@ -3,5 +3,8 @@
         "DAILY": "Daily",
         "TARGET": "Target",
         "PROFILE": "Profile"
+    },
+    "TARGET": {
+        "editTarget": "Edit target"
     }
 }
