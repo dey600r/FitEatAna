@@ -2,7 +2,10 @@
     "COMMON": {
         "DAILY": "Diario",
         "TARGET": "Objetivo",
-        "PROFILE": "Perfil"
+        "PROFILE": "Perfil",
+        "LOSE": "Perder",
+        "GAIN": "Ganar",
+        "KEEP": "Mantener"
     },
     "TARGET": {
         "editTarget": "Editar objetivo"

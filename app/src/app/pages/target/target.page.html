@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button color="snow" icon="chevron-back-outline" defaultHref="tabs/home"></ion-back-button>
+      <ion-back-button color="snow" icon="chevron-back-outline" [defaultHref]="URL_HOME"></ion-back-button>
       <ion-title color="snow">{{ 'COMMON.TARGET' | translate }}</ion-title>
     </ion-buttons>
     <ion-buttons slot="end">
@@ -31,7 +31,7 @@
         <ion-title size="small">Perdido desde 01/01/2020</ion-title>
       </div>
     </div>
-    <ion-button color="sky" [routerLink]="['/edit-target']" fill="clear"> {{ 'TARGET.editTarget' | translate}}</ion-button>
+    <ion-button color="sky" [routerLink]="[URL_EDIT_TARGET]" fill="clear"> {{ 'TARGET.editTarget' | translate}}</ion-button>
   </div>
 
 </ion-content>

@@ -38,8 +38,14 @@
         <ion-title size="small">1676 cal restantes</ion-title>
       </div>
       <ion-buttons slot="end">
-        <ion-button><ion-icon slot="icon-only" size="large" name="add-outline"></ion-icon></ion-button>
+        <ion-button (click)="click()"><ion-icon slot="icon-only" size="large" name="add-outline" ></ion-icon></ion-button>
+        <ion-button (click)="getProfile()"><ion-icon slot="icon-only" size="large" name="flame-outline" ></ion-icon></ion-button>
       </ion-buttons>
     </div>
   </div>
+  <h3>{{code}}</h3>
+  <p>{{token.access_token}}</p>
+  <p>{{profile.user.displayName}}</p>
+  <p>{{profile.user.age}}</p>
+  <p>{{profile.user.dateOfBirth}}</p>
 </ion-content>

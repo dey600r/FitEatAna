@@ -44,3 +44,6 @@ app/gradlew
 app/gradlew.bat
 app/.scannerwork
 app/src/app/.scannerwork
+
+server/node_modules
+server/dist

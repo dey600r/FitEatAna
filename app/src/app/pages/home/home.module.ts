@@ -8,6 +8,10 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader, TranslateStore } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+// PLUGINS
+import { BrowserTab } from '@ionic-native/browser-tab/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 // UTILS
 import { environment } from '@environment/environment';
 
@@ -35,7 +39,7 @@ import { HomePageRoutingModule } from './home-routing.module';
     })
   ],
   declarations: [HomePage],
-  providers: [TranslateStore]
+  providers: [TranslateStore, BrowserTab, InAppBrowser]
 })
 export class HomePageModule {}
 

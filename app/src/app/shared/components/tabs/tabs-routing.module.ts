@@ -2,33 +2,35 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
+import { RoutesConstants } from '@utils/index';
+
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: RoutesConstants.TABS,
     component: TabsPage,
     children: [
       {
-        path: 'home',
+        path: RoutesConstants.HOME,
         loadChildren: () => import('../../../pages/home/home.module').then(m => m.HomePageModule)
       },
       {
-        path: 'target',
+        path: RoutesConstants.TARGET,
         loadChildren: () => import('../../../pages/target/target.module').then(m => m.TargetPageModule)
       },
       {
-        path: 'profile',
+        path: RoutesConstants.PROFILE,
         loadChildren: () => import('../../../pages/profile/profile.module').then(m => m.ProfilePageModule)
       },
       {
         path: '',
-        redirectTo: '/tabs/home',
+        redirectTo: RoutesConstants.URL_HOME,
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/home',
+    redirectTo: RoutesConstants.URL_HOME,
     pathMatch: 'full'
   }
 ];

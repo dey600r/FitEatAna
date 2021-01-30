@@ -1,61 +1,56 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button color="snow" icon="chevron-back-outline" defaultHref="tabs/target"></ion-back-button>
+      <ion-back-button color="snow" icon="chevron-back-outline" [defaultHref]="URL_TARGET"></ion-back-button>
       <ion-title color="snow">{{ 'TARGET.editTarget' | translate }}</ion-title>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen class="ion-padding" scroll-y="false">
-  <ion-slides (ionSlideWillChange)="slideChange($event)">
+  <ion-slides #slider (ionSlideWillChange)="slideChange($event)">
 
-    <ion-slide >
+    <ion-slide>
       <div class="slide">
         <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
         <h2>Voy a ...</h2>
         <ion-list>
-          <ion-item>
-            <ion-label>Perder</ion-label>
-            <!-- <ion-checkbox slot="start" color="sky"></ion-checkbox> -->
-            <ion-toggle slot="start" color="sky"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Ganar</ion-label>
-            <ion-toggle slot="start" color="sky"></ion-toggle>
-          </ion-item>
-          <ion-item>
-            <ion-label>Mantener</ion-label>
-            <ion-toggle slot="start" color="sky"></ion-toggle>
+          <ion-item *ngFor="let item of listGoals">
+            <ion-label>{{ item.title | translate }}</ion-label>
+            <ion-toggle slot="start" color="sky" [(ngModel)]="item.checked" (click)="toggleChange(item.value)"></ion-toggle>
           </ion-item>
         </ion-list>
+        <ion-button fill="clear" (click)="goNext(1)">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
       </div>
     </ion-slide>
 
     <ion-slide>
       <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
       <h2>¿Cual es tu peso objetivo?</h2>
-      <ion-input type="number" [(ngModel)]="weight"></ion-input>
+      <ion-input type="number" [(ngModel)]="userGoal.goalWeight"></ion-input>
+      <ion-button fill="clear" (click)="goNext(2)">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 
     <ion-slide>
       <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
       <h2>¿Tienes un porcentaje de masa como objetivo?</h2>
       <p>Según tu género, el rango normal de grasa corporal es de 20-31%</p>
-      <ion-input type="number" value="333"></ion-input>
+      <ion-input type="number" [(ngModel)]="userGoal.goalPercentageFat"></ion-input>
+      <ion-button fill="clear" (click)="goNext(3)">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 
     <ion-slide>
       <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
       <h2>¿Cual es tu peso actual?</h2>
-      <ion-input type="number" value="333"></ion-input>
+      <ion-input type="number" [(ngModel)]="userGoal.weight"></ion-input>
+      <ion-button fill="clear" (click)="goNext(4)">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 
     <ion-slide>
       <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
       <h2>¿Cual es tu porcentaje de grasa actual?</h2>
-      <ion-input type="number" value="333"></ion-input>
-      <ion-button fill="clear" [routerLink]="['/tabs/target']">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+      <ion-input type="number" [(ngModel)]="userGoal.percentageFat"></ion-input>
+      <ion-button fill="clear" (click)="finish()">Finish <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 
   </ion-slides>

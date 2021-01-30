@@ -2,7 +2,10 @@
     "COMMON": {
         "DAILY": "Daily",
         "TARGET": "Target",
-        "PROFILE": "Profile"
+        "PROFILE": "Profile",
+        "LOSE": "Lose",
+        "GAIN": "Gain",
+        "KEEP": "Keep"
     },
     "TARGET": {
         "editTarget": "Edit target"
