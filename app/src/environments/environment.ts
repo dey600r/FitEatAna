@@ -4,7 +4,14 @@
 
 export const environment = {
   production: false,
-  pathTranslate: './assets/i18n/'
+  pathTranslate: './assets/i18n/',
+  fitbit: {
+    clientId: '22C7D3',
+    secretAuthorizationId: 'MjJDN0QzOmUxMDZlNTJiYjYyNWYzM2VlYmQ5ZmQ0YWRjZTY5MTA3',
+    redirectUri: 'http://localhost:8100/tabs/home',
+    urlAuthorization: 'https://www.fitbit.com/oauth2/authorize',
+    urlToken: 'https://api.fitbit.com/oauth2/token',
+  }
 };
 
 /*

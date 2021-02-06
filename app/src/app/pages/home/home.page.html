@@ -1,10 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button color="snow">
-        <ion-icon color="snow" slot="icon-only" name="person-circle-outline"></ion-icon>
+      <ion-button color="snow" [routerLink]="[URL_LOGIN]">
+        <ion-icon *ngIf="profile.avatar === ''" color="snow" slot="icon-only" name="person-circle-outline"></ion-icon>
+        <img *ngIf="profile.avatar !== ''" [src]="profile.avatar" alt="Avatar"/>
       </ion-button>
-      <ion-title color="snow">Ana Carretero</ion-title>
+      <ion-title color="snow">{{profile.displayName}}</ion-title>
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-title color="snow">Semana 1</ion-title>
@@ -16,7 +17,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
   <div class="content-card">
     <div class="content-card-graphic">
       <ion-icon color="sky" slot="center" size="large" name="stats-chart-outline"></ion-icon>
@@ -39,13 +39,7 @@
       </div>
       <ion-buttons slot="end">
         <ion-button (click)="click()"><ion-icon slot="icon-only" size="large" name="add-outline" ></ion-icon></ion-button>
-        <ion-button (click)="getProfile()"><ion-icon slot="icon-only" size="large" name="flame-outline" ></ion-icon></ion-button>
       </ion-buttons>
     </div>
   </div>
-  <h3>{{code}}</h3>
-  <p>{{token.access_token}}</p>
-  <p>{{profile.user.displayName}}</p>
-  <p>{{profile.user.age}}</p>
-  <p>{{profile.user.dateOfBirth}}</p>
 </ion-content>

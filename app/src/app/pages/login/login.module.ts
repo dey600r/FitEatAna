@@ -12,20 +12,20 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '@environment/environment';
 
 // COMPONENT
-import { HomePage } from './home.page';
+import { LoginPage } from './login.page';
 
 // MODULES
 import { ComponentsModule } from '@modules/components.module';
-import { HomePageRoutingModule } from './home-routing.module';
+import { LoginPageRoutingModule } from './login-routing.module';
 
 @NgModule({
   imports: [
-    IonicModule,
     CommonModule,
     FormsModule,
+    IonicModule,
+    LoginPageRoutingModule,
     HttpClientModule,
     ComponentsModule,
-    HomePageRoutingModule,
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
@@ -34,10 +34,10 @@ import { HomePageRoutingModule } from './home-routing.module';
       }
     })
   ],
-  declarations: [HomePage],
+  declarations: [LoginPage],
   providers: [TranslateStore]
 })
-export class HomePageModule {}
+export class LoginPageModule {}
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, environment.pathTranslate, '.json');

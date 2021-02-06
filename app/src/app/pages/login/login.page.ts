@@ -1,30 +1,40 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 
-// EXTERNAL LIBRARIES
+// LIBRARIES ANGULAR
 import { TranslateService } from '@ngx-translate/core';
+
+// SERVICES
+import { LoginFitbitService } from '@services/index';
 
 // UTILS
 import { RoutesConstants } from '@utils/index';
 
 @Component({
-  selector: 'app-target',
-  templateUrl: 'target.page.html',
-  styleUrls: ['target.page.scss']
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class TargetPage {
+export class LoginPage implements OnInit {
 
   readonly URL_HOME = RoutesConstants.URL_HOME;
-  readonly URL_EDIT_TARGET = RoutesConstants.URL_EDIT_TARGET;
 
   constructor(private platform: Platform,
-              private translator: TranslateService) {
+              private translator: TranslateService,
+              private loginFitbitService: LoginFitbitService) {
     this.platform.ready().then(() => {
       let userLang = navigator.language.split('-')[0];
       userLang = /(es|en)/gi.test(userLang) ? userLang : 'en';
       this.translator.use(userLang);
     }).finally(() => {
     });
+  }
+
+  ngOnInit() {
+  }
+
+  authorizateWithFitbit() {
+    this.loginFitbitService.loginWithFitbit();
   }
 
 }

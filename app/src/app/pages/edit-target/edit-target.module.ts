@@ -8,9 +8,6 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule, TranslateLoader, TranslateStore } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-// PLUGINS
-import { IonicStorageModule } from '@ionic/storage';
-
 // UTILS
 import { environment } from '@environment/environment';
 
@@ -29,7 +26,6 @@ import { EditTargetPageRoutingModule } from './edit-target-routing.module';
     EditTargetPageRoutingModule,
     HttpClientModule,
     ComponentsModule,
-    IonicStorageModule.forRoot(),
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,

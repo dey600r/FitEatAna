@@ -1,0 +1,20 @@
+<ion-content>
+  <div class="main-content">
+    <ion-title class="content-padding" size="large" color="snow">FitEatAna</ion-title>
+    <ion-title class="content-padding" size="small" color="snow">Para utilizar [nombreAPP] es necesario
+      que seas usuario de fitbit. No es obligatorio tener
+      un dispositivo de la marca, pero sí estar registrado
+      como usuario. </ion-title>
+    <ion-buttons class="content-padding" color="sky">
+      <ion-button color="sky" fill="solid" (click)="authorizateWithFitbit()">
+        Login with fitbit
+        <ion-icon slot="start" size="small" color="snow" src="../../../assets/icon/fitbit-icon.svg"></ion-icon>
+      </ion-button> 
+    </ion-buttons>
+    <ion-title class="content-padding" size="small" color="snow">¿Aun no tienes cuenta?</ion-title>
+    <ion-buttons class="content-padding" color="sky">
+      <ion-button color="sky" fill="clear" [routerLink]="[URL_HOME]">Registrate en FitBit</ion-button> 
+    </ion-buttons>
+  </div>
+  
+</ion-content>

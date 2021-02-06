@@ -9,5 +9,8 @@
     },
     "TARGET": {
         "editTarget": "Edit target"
+    },
+    "ALERT" : {
+        "INFO": "Info"
     }
 }

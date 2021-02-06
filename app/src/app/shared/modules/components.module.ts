@@ -9,6 +9,9 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
 
+// PLUGINS
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
+
 // UTILS
 import { CommonService } from '@services/index';
 
@@ -31,7 +34,8 @@ import { InfoComponent } from '@components/info/info.component';
     InfoComponent
   ],
   providers: [
-    CommonService
+    CommonService,
+    InAppBrowser
   ]
 })
 export class ComponentsModule { }

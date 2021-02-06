@@ -4,9 +4,11 @@ import { TabsPage } from './tabs.page';
 
 import { RoutesConstants } from '@utils/index';
 
+import { UserFitbitGuard } from '@guards/index';
+
 const routes: Routes = [
   {
-    path: RoutesConstants.TABS,
+    path: '',
     component: TabsPage,
     children: [
       {
@@ -15,11 +17,13 @@ const routes: Routes = [
       },
       {
         path: RoutesConstants.TARGET,
-        loadChildren: () => import('../../../pages/target/target.module').then(m => m.TargetPageModule)
+        loadChildren: () => import('../../../pages/target/target.module').then(m => m.TargetPageModule),
+        canActivate: [ UserFitbitGuard ]
       },
       {
         path: RoutesConstants.PROFILE,
-        loadChildren: () => import('../../../pages/profile/profile.module').then(m => m.ProfilePageModule)
+        loadChildren: () => import('../../../pages/profile/profile.module').then(m => m.ProfilePageModule),
+        canActivate: [ UserFitbitGuard ]
       },
       {
         path: '',
@@ -27,11 +31,6 @@ const routes: Routes = [
         pathMatch: 'full'
       }
     ]
-  },
-  {
-    path: '',
-    redirectTo: RoutesConstants.URL_HOME,
-    pathMatch: 'full'
   }
 ];
 

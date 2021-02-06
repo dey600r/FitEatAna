@@ -4,6 +4,8 @@ export class RoutesConstants {
     static PROFILE = 'profile';
     static TABS = 'tabs';
     static EDIT_TARGET = 'edit-target';
+    static LOGIN = 'login';
+    static URL_LOGIN = '/login';
     static URL_HOME = '/tabs/home';
     static URL_TARGET = '/tabs/target';
     static URL_PROFILE = '/tabs/profile';

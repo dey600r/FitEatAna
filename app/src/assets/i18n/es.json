@@ -9,5 +9,8 @@
     },
     "TARGET": {
         "editTarget": "Editar objetivo"
+    },
+    "ALERT" : {
+        "INFO": "Info"
     }
 }
