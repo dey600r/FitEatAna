@@ -37,29 +37,32 @@ export class HomePage implements OnInit {
   }
 
   ngOnInit() {
-    this.loginFitbitService.authenticationWithFitbit();
+    this.initPageLogin();
+  }
 
-    this.storage.get(Constants.STORAGE_USER_PROFILE).then(profile => {
-      if (profile) {
-        this.profile = profile;
-      } else {
-        this.loginFitbitService.getFitbit(Constants.URL_FITBIT_PROFILE).then((value: Observable<any[]>) => {
-          if (value) {
-            value.subscribe((data: any) => {
-              this.profile = new UserProfileModel(data.user.displayName, data.user.age,
-                data.user.fullName, data.user.dateOfBirth, data.user.timezone, data.user.avatar);
-              this.storage.set(Constants.STORAGE_USER_PROFILE, this.profile);
-            });
-          }
+  async initPageLogin() {
+    await this.loginFitbitService.authenticationWithFitbit();
+
+    this.loginFitbitService.getFitbit(this.loginFitbitService.getURLApi(Constants.URL_FITBIT_GET_PROFILE)).then(
+      (value: Observable<any[]>) => {
+      if (value) {
+        value.subscribe((data: any) => {
+          this.profile = new UserProfileModel(data.user.displayName, data.user.age,
+            data.user.fullName, data.user.dateOfBirth, data.user.timezone, data.user.avatar);
+          this.storage.set(Constants.STORAGE_USER_PROFILE, this.profile);
+        }, error => {
+          this.storage.get(Constants.STORAGE_USER_PROFILE).then(profile => {
+            if (profile) {
+              this.profile = profile;
+            }
+          });
         });
       }
     });
   }
 
-
-
   click() {
-    this.loginFitbitService.loginWithFitbit();
+
   }
 
 }

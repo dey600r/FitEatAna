@@ -27,7 +27,7 @@
     <ion-slide>
       <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
       <h2>¿Cual es tu peso objetivo?</h2>
-      <ion-input type="number" [(ngModel)]="userGoal.goalWeight"></ion-input>
+      <ion-input type="number" [(ngModel)]="userGoal.weight.goalWeight" min=20 max=200 step="0.01"></ion-input>
       <ion-button fill="clear" (click)="goNext(2)">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 
@@ -35,21 +35,21 @@
       <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
       <h2>¿Tienes un porcentaje de masa como objetivo?</h2>
       <p>Según tu género, el rango normal de grasa corporal es de 20-31%</p>
-      <ion-input type="number" [(ngModel)]="userGoal.goalPercentageFat"></ion-input>
+      <ion-input type="number" [(ngModel)]="userGoal.fat.goalPercentageFat" min=5 max=75 step="0.01"></ion-input>
       <ion-button fill="clear" (click)="goNext(3)">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 
     <ion-slide>
       <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
       <h2>¿Cual es tu peso actual?</h2>
-      <ion-input type="number" [(ngModel)]="userGoal.weight"></ion-input>
+      <ion-input type="number" [(ngModel)]="userGoal.weight.weight" min=20 max=300 step="0.01"></ion-input>
       <ion-button fill="clear" (click)="goNext(4)">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 
     <ion-slide>
       <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
       <h2>¿Cual es tu porcentaje de grasa actual?</h2>
-      <ion-input type="number" [(ngModel)]="userGoal.percentageFat"></ion-input>
+      <ion-input type="number" [(ngModel)]="userGoal.fat.percentageFat" min=5 max=75 step="0.01"></ion-input>
       <ion-button fill="clear" (click)="finish()">Finish <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 

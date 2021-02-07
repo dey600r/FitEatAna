@@ -22,5 +22,11 @@ export class Constants {
     static DELAY_TOAST_HIGHER = 7000;
 
     // URL FITBIT
-    static URL_FITBIT_PROFILE = 'https://api.fitbit.com/1/user/-/profile.json';
+    static URL_FITBIT_GET_PROFILE = '/1/user/-/profile.json';
+    static URL_FITBIT_UPDATE_FAT = '/1/user/-/body/log/fat.json';
+    static URL_FITBIT_GET_FAT = '/1/user/-/body/log/fat/date/{date}.json';
+
+    // FORMAT DATE
+    static FORMAT_DATE_FITBIT = 'YYYY-MM-DD';
+    static FORMAT_TIME_FITBIT = 'HH:mm:ss';
 }
