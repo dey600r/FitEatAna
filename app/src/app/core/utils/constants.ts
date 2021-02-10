@@ -24,7 +24,11 @@ export class Constants {
     // URL FITBIT
     static URL_FITBIT_GET_PROFILE = '/1/user/-/profile.json';
     static URL_FITBIT_UPDATE_FAT = '/1/user/-/body/log/fat.json';
-    static URL_FITBIT_GET_FAT = '/1/user/-/body/log/fat/date/{date}.json';
+    static URL_FITBIT_GET_RANGE_FAT = '/1/user/-/body/log/fat/date/{base-date}/{end-date}.json';
+    static URL_FITBIT_UPDATE_FAT_GOAL = '/1/user/-/body/log/fat/goal.json';
+    static URL_FITBIT_GET_GOAL = '/1/user/-/body/log/{goal-type}/goal.json';
+    static URL_FITBIT_UPDATE_WEIGHT = '/1/user/-/body/log/weight.json';
+    static URL_FITBIT_UPDATE_WEIGHT_GOAL = '/1/user/-/body/log/weight/goal.json';
 
     // FORMAT DATE
     static FORMAT_DATE_FITBIT = 'YYYY-MM-DD';

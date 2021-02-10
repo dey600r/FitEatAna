@@ -19,4 +19,8 @@ export class CommonService {
     return Math.random().toString(36) + window.crypto.getRandomValues(new Uint8Array(8)).join('') + Math.random().toString(36);
   }
 
+  formatDecimal(value: number, decimals: number = 2): number {
+    return Number(value.toFixed(decimals));
+  }
+
 }
