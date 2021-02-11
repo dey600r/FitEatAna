@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
-import { RoutesConstants } from '@utils/index';
+import { RoutesConstants, UrlsConstants } from '@utils/index';
 
 import { UserFitbitGuard } from '@guards/index';
 
@@ -27,7 +27,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: RoutesConstants.URL_HOME,
+        redirectTo: UrlsConstants.URL_HOME,
         pathMatch: 'full'
       }
     ]

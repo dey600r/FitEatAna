@@ -10,7 +10,7 @@ import { LoginFitbitService } from '@services/index';
 import { UserProfileModel } from '@models/index';
 
 // UTILS
-import { Constants, RoutesConstants } from '@utils/index';
+import { Constants, UrlsConstants } from '@utils/index';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -20,7 +20,9 @@ import { Observable } from 'rxjs';
 })
 export class HomePage implements OnInit {
 
-  URL_LOGIN = RoutesConstants.URL_LOGIN;
+  URL_LOGIN = UrlsConstants.URL_LOGIN;
+  URL_ADD_FOOD = UrlsConstants.URL_ADD_FOOD;
+  URL_FEEDING = UrlsConstants.URL_FEEDING;
 
   profile: UserProfileModel = new UserProfileModel();
 
@@ -59,10 +61,6 @@ export class HomePage implements OnInit {
         });
       }
     });
-  }
-
-  click() {
-
   }
 
 }

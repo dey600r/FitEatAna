@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { RoutesConstants } from '@utils/index';
+import { RoutesConstants, UrlsConstants } from '@utils/index';
 
 import { UserFitbitGuard } from '@guards/index';
 
@@ -20,8 +20,18 @@ const routes: Routes = [
     canActivate: [ UserFitbitGuard ]
   },
   {
+    path: RoutesConstants.ADD_FOOD,
+    loadChildren: () => import('./pages/add-food/add-food.module').then( m => m.AddFoodPageModule),
+    canActivate: [ UserFitbitGuard ]
+  },
+  {
+    path: RoutesConstants.FEEDING,
+    loadChildren: () => import('./pages/feeding/feeding.module').then( m => m.FeedingPageModule),
+    canActivate: [ UserFitbitGuard ]
+  },
+  {
     path: '',
-    redirectTo: RoutesConstants.LOGIN,
+    redirectTo: UrlsConstants.URL_LOGIN,
     pathMatch: 'full'
   }
 ];

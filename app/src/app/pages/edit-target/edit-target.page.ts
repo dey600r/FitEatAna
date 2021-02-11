@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { Storage } from '@ionic/storage';
 
 // UTILS
-import { RoutesConstants, Constants, GoalsEnum, GoalsTypeEnum } from '@utils/index';
+import { UrlsConstants, Constants, GoalsEnum, GoalsTypeEnum } from '@utils/index';
 import {
   BaseFatFitbitResponseModel, BaseFatGoalFitbitResponseModel, BaseWeightGoalFitbitResponseModel,
   FatFitbitRequestModel, WeightFitbitRequestModel, WeightGoalFitbitResponseModel,
@@ -32,7 +32,7 @@ export class EditTargetPage implements OnInit {
   changedWeight = false;
   changedWeightGoal = false;
 
-  URL_TARGET: string = RoutesConstants.URL_TARGET;
+  URL_TARGET: string = UrlsConstants.URL_TARGET;
 
   listGoals: any[] = [
     { title: 'COMMON.LOSE', checked: true, value: GoalsEnum.LOSE },
@@ -97,7 +97,7 @@ export class EditTargetPage implements OnInit {
 
   finish() {
     this.saveAndLoad(5);
-    this.router.navigateByUrl(RoutesConstants.URL_TARGET);
+    this.router.navigateByUrl(UrlsConstants.URL_TARGET);
   }
 
   // SAVE

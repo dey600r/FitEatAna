@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { LoginFitbitService } from '@services/index';
 
 // UTILS
-import { RoutesConstants } from '@utils/index';
+import { UrlsConstants } from '@utils/index';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,7 @@ import { RoutesConstants } from '@utils/index';
 })
 export class LoginPage implements OnInit {
 
-  readonly URL_HOME = RoutesConstants.URL_HOME;
+  readonly URL_HOME = UrlsConstants.URL_HOME;
 
   constructor(private platform: Platform,
               private translator: TranslateService,

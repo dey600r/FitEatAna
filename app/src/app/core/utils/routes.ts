@@ -5,9 +5,16 @@ export class RoutesConstants {
     static TABS = 'tabs';
     static EDIT_TARGET = 'edit-target';
     static LOGIN = 'login';
-    static URL_LOGIN = '/login';
-    static URL_HOME = '/tabs/home';
-    static URL_TARGET = '/tabs/target';
-    static URL_PROFILE = '/tabs/profile';
-    static URL_EDIT_TARGET = '/edit-target';
+    static ADD_FOOD = 'add-food';
+    static FEEDING = 'feeding';
+}
+
+export class UrlsConstants {
+    static URL_LOGIN = `/${RoutesConstants.LOGIN}`;
+    static URL_HOME = `/${RoutesConstants.TABS}/${RoutesConstants.HOME}`;
+    static URL_TARGET = `/${RoutesConstants.TABS}/${RoutesConstants.TARGET}`;
+    static URL_PROFILE = `/${RoutesConstants.TABS}/${RoutesConstants.PROFILE}`;
+    static URL_EDIT_TARGET = `/${RoutesConstants.EDIT_TARGET}`;
+    static URL_ADD_FOOD = `/${RoutesConstants.ADD_FOOD}`;
+    static URL_FEEDING = `/${RoutesConstants.FEEDING}`;
 }

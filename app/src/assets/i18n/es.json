@@ -9,6 +9,9 @@
         "CONTINUE": "Continuar",
         "FINISH": "Finalizar"
     },
+    "FOOD": {
+        "addFood": "Registrar alimento"
+    },
     "TARGET": {
         "editTarget": "Editar objetivo",
         "titleGoal": "Voy a ...",

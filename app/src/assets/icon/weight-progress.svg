@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="72" height="72" viewBox="0 0 72 72">
+    <defs>
+        <circle id="4aqq29us4c" cx="36" cy="36" r="36"/>
+        <circle id="0sirfwpjje" cx="36" cy="36" r="36"/>
+        <filter id="ofairkgfya" width="103.8%" height="112.5%" x="-1.9%" y="-4.5%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.200666521 0"/>
+        </filter>
+        <path id="xn258bspsb" d="M20 466H392V578H20z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <path fill="#FAFAFA" d="M0 0H412V732H0z" transform="translate(-40 -486)"/>
+            <g transform="translate(-40 -486)">
+                <use fill="#000" filter="url(#ofairkgfya)" xlink:href="#xn258bspsb"/>
+                <use fill="#FFF" xlink:href="#xn258bspsb"/>
+            </g>
+            <g>
+                <g fill="#00B0B9" fill-opacity=".2" fill-rule="nonzero" transform="translate(-40 -486) translate(40 486)">
+                    <circle cx="36" cy="36" r="36"/>
+                </g>
+                <g transform="translate(-40 -486) translate(40 486)">
+                    <mask id="uj2iruosnd" fill="#fff">
+                        <use xlink:href="#4aqq29us4c"/>
+                    </mask>
+                    <circle cx="36" cy="36" r="32" fill="#FFF" fill-rule="nonzero" mask="url(#uj2iruosnd)"/>
+                </g>
+                <g transform="translate(-40 -486) translate(40 486)">
+                    <mask id="l3cmtlev6f" fill="#fff">
+                        <use xlink:href="#0sirfwpjje"/>
+                    </mask>
+                    <path stroke="#00B0B9" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".402" stroke-width="4" d="M34.05 16.094C40.32 11.164 47.272 8.7 54.91 8.7c7.636 0 14.683 2.465 21.14 7.394" mask="url(#l3cmtlev6f)" transform="rotate(39 55.05 12.397)"/>
+                </g>
+                <g transform="translate(-40 -486) translate(40 486) translate(20 20)">
+                    <path fill="#00B0B9" stroke="#00B0B9" stroke-linejoin="round" stroke-width="10" d="M0 0H32V32H0z"/>
+                    <circle cx="16" cy="4" r="4" fill="#FFF"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

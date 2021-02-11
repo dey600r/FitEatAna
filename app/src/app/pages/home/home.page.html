@@ -30,15 +30,28 @@
     </div>
   </div>
 
+  <div class="content-card" >
+    <div class="content-column">
+      <ion-icon color="sky" [routerLink]="[URL_FEEDING]" size="large" src="../../../assets/icon/calories-progress.svg"></ion-icon>
+      <div class="content-row" [routerLink]="[URL_FEEDING]">
+        <ion-title size="large">924 cal consumidas</ion-title>
+        <ion-title size="small">1676 cal restantes</ion-title>
+      </div>
+      <ion-buttons slot="end">
+        <ion-button [routerLink]="[URL_ADD_FOOD]"><ion-icon slot="icon-only" size="large" name="add-outline" ></ion-icon></ion-button>
+      </ion-buttons>
+    </div>
+  </div>
+  
   <div class="content-card">
     <div class="content-column">
-      <ion-icon color="sky" size="large" name="logo-apple"></ion-icon>
+      <ion-icon color="sky" size="large" src="../../../assets/icon/weight-progress.svg"></ion-icon>
       <div class="content-row">
         <ion-title size="large">924 cal consumidas</ion-title>
         <ion-title size="small">1676 cal restantes</ion-title>
       </div>
       <ion-buttons slot="end">
-        <ion-button (click)="click()"><ion-icon slot="icon-only" size="large" name="add-outline" ></ion-icon></ion-button>
+        <ion-button><ion-icon slot="icon-only" size="large" name="add-outline" ></ion-icon></ion-button>
       </ion-buttons>
     </div>
   </div>

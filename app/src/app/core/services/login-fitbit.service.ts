@@ -14,7 +14,7 @@ import { CommonService } from './common.service';
 // UTILS
 import { UserTokenModel, TokenFitbitModel } from '@models/index';
 import { environment } from '@environment/environment';
-import { Constants, RoutesConstants } from '@utils/index';
+import { Constants, UrlsConstants } from '@utils/index';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -46,7 +46,7 @@ export class LoginFitbitService {
     await this.loadUserToken();
 
     if (this.userToken && this.userToken.isAuthorizated() && this.userToken.isAuthenticated()) {
-      this.router.navigateByUrl(RoutesConstants.URL_HOME);
+      this.router.navigateByUrl(UrlsConstants.URL_HOME);
     } else if (this.userToken && this.userToken.isAuthorizated() && !this.userToken.isAuthenticated()) {
       this.authenticationWithFitbit();
     } else {
@@ -62,7 +62,7 @@ export class LoginFitbitService {
     await this.loadUserToken();
 
     if (this.userToken === null || !this.userToken.isAuthorizated()) {
-      this.router.navigateByUrl(RoutesConstants.URL_LOGIN);
+      this.router.navigateByUrl(UrlsConstants.URL_LOGIN);
       return Promise.resolve(false);
     }
 
@@ -85,7 +85,7 @@ export class LoginFitbitService {
       });
 
       browser.on('exit').subscribe(event => {
-        this.router.navigateByUrl(RoutesConstants.URL_HOME);
+        this.router.navigateByUrl(UrlsConstants.URL_HOME);
       });
     } else {
       window.open(url, '_self');
@@ -130,7 +130,7 @@ export class LoginFitbitService {
         });
       } else {
         console.log('AUTHORIZATION CODE NOT FOUND');
-        this.router.navigateByUrl(RoutesConstants.URL_LOGIN);
+        this.router.navigateByUrl(UrlsConstants.URL_LOGIN);
         resolve(false);
       }
     });
@@ -175,7 +175,7 @@ export class LoginFitbitService {
       });
     } else {
       console.log('REFRESH TOKEN NOT FOUND');
-      this.router.navigateByUrl(RoutesConstants.URL_LOGIN);
+      this.router.navigateByUrl(UrlsConstants.URL_LOGIN);
     }
   }
 
@@ -217,7 +217,7 @@ export class LoginFitbitService {
 
   private async isValidAndRefreshToGetOrPost(promise: Promise<any>): Promise<any> {
     if (!this.userToken.isAuthorizated()) {
-      this.router.navigateByUrl(RoutesConstants.URL_LOGIN);
+      this.router.navigateByUrl(UrlsConstants.URL_LOGIN);
       return Promise.resolve(null);
     }
     if (!this.userToken.isAuthenticated() && !await this.refreshToken()) {
@@ -262,7 +262,7 @@ export class LoginFitbitService {
       }
     } else {
       console.log('Error no controlado');
-      this.router.navigateByUrl(RoutesConstants.URL_LOGIN);
+      this.router.navigateByUrl(UrlsConstants.URL_LOGIN);
     }
   }
 

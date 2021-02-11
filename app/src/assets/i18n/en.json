@@ -9,6 +9,9 @@
         "CONTINUE": "Continue",
         "FINISH": "Finish"
     },
+    "FOOD": {
+        "addFood": "Add food"
+    },
     "TARGET": {
         "editTarget": "Edit target",
         "titleGoal": "I will ...",
