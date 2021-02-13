@@ -91,6 +91,30 @@
   --ion-color-sky-tint: #00aacc;
 
   /* THEME FITBIT */
+  --ion-color-primary-teal: #00B0B9;
+  --ion-color-primary-teal-rgb: 0,176,185;
+  --ion-color-primary-white: #ffffff;
+  --ion-color-primary-white-rgb: 250,250,250;
+  --ion-color-primary-midnight: #002A3A;
+  --ion-color-primary-midnight-rgb: 0,42,58;
+  --ion-color-primary-slate: #006BA6;
+  --ion-color-primary-slate-rgb: 0,107,166;
+
+  --ion-color-secondary-dark-teal: #008EAA;
+  --ion-color-secondary-dark-teal-rgb: 0,142,170;
+  --ion-color-secondary-sky: #B9D9EB;
+  --ion-color-secondary-sky-rgb: 185,217,235;
+  --ion-color-secondary-orange: #E87722;
+  --ion-color-secondary-orange-rgb: 232,119,34;
+  --ion-color-secondary-tangerine: #FF585D;
+  --ion-color-secondary-tangerine-rgb: 255,88,93;
+  --ion-color-secondary-magenta: #EF426F;
+  --ion-color-secondary-magenta-rgb: 239,66,111;
+  --ion-color-secondary-grass: #97D700;
+  --ion-color-secondary-grass-rgb: 151,215,0;
+  --ion-color-secondary-lime: #C4D600;
+  --ion-color-secondary-lime-rgb: 196,214,0;
+
   --ion-background-color: #fafafa;
   --ion-background-color-rgb: 250,250,250;
 
@@ -119,7 +143,7 @@
 
   --ion-item-background: #fafafa;
 
-  --ion-toolbar-background: #002a3a;
+  --ion-toolbar-background: var(--ion-color-primary-midnight, #002a3a);
 
   --ion-tab-bar-background: #002a3a;
 

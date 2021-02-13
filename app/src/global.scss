@@ -45,7 +45,42 @@
     --ion-color-tint: var(--ion-color-sky-tint);
 }
 
+.ion-color-primary-teal {
+    --ion-color-base: var(--ion-color-primary-teal);
+    --ion-color-base-rgb: var(--ion-color-primary-teal-rgb);
+}
+
 /** STYLES CUSTOM **/
+
+html.ios {
+    font-size: 16px;
+    font-family: 'Nunito Sans Regular', 'Helvetica', 'Roboto', 'Noto', sans-serif;
+    font-style: normal;
+    font-weight: normal;}
+
+html.md {
+    font-size: 16px;
+    --ion-font-font: 'Nunito Sans Regular', 'Roboto', 'Noto', sans-serif;
+}
+
+.page-container {
+    display: block;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Nunito Sans Regular', 'Helvetica', 'Roboto', 'Noto', sans-serif;
+
+}
+
+@media (max-width: 767px) {
+
+    .page-container {
+        display: block;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 
 .content-card {
     margin: 20px;
@@ -67,4 +102,18 @@
 .content-row {
     display: flex;
     flex-direction: column;
+}
+
+ion-button {
+    --box-shadow: none;
+    text-transform: none;
+    font-family: 'Nunito Sans Bold', 'Helvetica', 'Roboto', 'Noto', sans-serif;
+}
+
+ion-router-link {
+    font-family: 'Nunito Sans Bold', 'Helvetica', 'Roboto', 'Noto', sans-serif;
+}
+
+ion-title.title-large {
+    font-size: 2.8em;
 }
