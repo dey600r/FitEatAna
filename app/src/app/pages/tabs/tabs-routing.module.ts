@@ -13,23 +13,20 @@ const routes: Routes = [
     children: [
       {
         path: RoutesConstants.HOME,
-        loadChildren: () => import('../../../pages/home/home.module').then(m => m.HomePageModule)
+        loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
       },
       {
         path: RoutesConstants.TARGET,
-        loadChildren: () => import('../../../pages/target/target.module').then(m => m.TargetPageModule),
+        loadChildren: () => import('./target/target.module').then(m => m.TargetPageModule),
         canActivate: [ UserFitbitGuard ]
       },
       {
         path: RoutesConstants.PROFILE,
-        loadChildren: () => import('../../../pages/profile/profile.module').then(m => m.ProfilePageModule),
+        loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule),
         canActivate: [ UserFitbitGuard ]
       },
-      {
-        path: '',
-        redirectTo: UrlsConstants.URL_HOME,
-        pathMatch: 'full'
-      }
+      { path: '', redirectTo: UrlsConstants.URL_HOME, pathMatch: 'full' },
+      { path: '**', redirectTo: UrlsConstants.URL_HOME }
     ]
   }
 ];

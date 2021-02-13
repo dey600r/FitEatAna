@@ -21,7 +21,7 @@ import { Observable } from 'rxjs';
 export class HomePage implements OnInit {
 
   URL_LOGIN = UrlsConstants.URL_LOGIN;
-  URL_ADD_FOOD = UrlsConstants.URL_ADD_FOOD;
+  URL_FOOD_LOGS = UrlsConstants.URL_FOOD_LOGS;
   URL_FEEDING = UrlsConstants.URL_FEEDING;
 
   profile: UserProfileModel = new UserProfileModel();

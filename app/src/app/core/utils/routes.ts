@@ -7,6 +7,7 @@ export class RoutesConstants {
     static LOGIN = 'login';
     static ADD_FOOD = 'add-food';
     static FEEDING = 'feeding';
+    static FOOD_LOGS = 'food-logs';
 }
 
 export class UrlsConstants {
@@ -15,6 +16,7 @@ export class UrlsConstants {
     static URL_TARGET = `/${RoutesConstants.TABS}/${RoutesConstants.TARGET}`;
     static URL_PROFILE = `/${RoutesConstants.TABS}/${RoutesConstants.PROFILE}`;
     static URL_EDIT_TARGET = `/${RoutesConstants.EDIT_TARGET}`;
-    static URL_ADD_FOOD = `/${RoutesConstants.ADD_FOOD}`;
+    static URL_ADD_FOOD = `/${RoutesConstants.FOOD_LOGS}/${RoutesConstants.ADD_FOOD}`;
     static URL_FEEDING = `/${RoutesConstants.FEEDING}`;
+    static URL_FOOD_LOGS = `/${RoutesConstants.FOOD_LOGS}`;
 }

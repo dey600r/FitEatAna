@@ -8,13 +8,14 @@ import { TranslateService } from '@ngx-translate/core';
 import { UrlsConstants } from '@utils/index';
 
 @Component({
-  selector: 'app-add-food',
-  templateUrl: './add-food.page.html',
-  styleUrls: ['./add-food.page.scss'],
+  selector: 'app-food-logs',
+  templateUrl: './food-logs.page.html',
+  styleUrls: ['./food-logs.page.scss'],
 })
-export class AddFoodPage implements OnInit {
+export class FoodLogsPage implements OnInit {
 
   URL_HOME = UrlsConstants.URL_HOME;
+  URL_ADD_FOOD = UrlsConstants.URL_ADD_FOOD;
 
   constructor(private platform: Platform,
               private translator: TranslateService) {

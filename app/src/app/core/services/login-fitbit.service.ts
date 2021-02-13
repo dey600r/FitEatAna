@@ -69,12 +69,19 @@ export class LoginFitbitService {
     return Promise.resolve(true);
   }
 
+  signUpWithFitbit() {
+    if (this.isDevice()) {
+      const browser = this.iab.create(environment.fitbit.urlSignUp);
+    } else {
+      window.open(environment.fitbit.urlSignUp, '_blank');
+    }
+  }
+
   private authorizationWithFitbit() {
     const url = this.getAuthorizationUrl();
     if (this.isDevice()) {
 
       const browser = this.iab.create(url);
-      // browser.show();
 
       browser.on('loadstart').subscribe(event => {
         if (event.url && event.url.includes('?code=')) {
@@ -259,11 +266,15 @@ export class LoginFitbitService {
       } else if (error.errors[0].errorType === 'expired_token' &&
         error.errors[0].message.includes('Access token expired')) {
           this.refreshToken();
+      } else {
+        console.log('Error response: ' + error.errors[0].message);
+        this.storage.set(Constants.STORAGE_USER_TOKEN, new UserTokenModel('', '', 0));
+        this.router.navigateByUrl(UrlsConstants.URL_LOGIN);
       }
     } else {
       console.log('Error no controlado');
+      this.storage.set(Constants.STORAGE_USER_TOKEN, new UserTokenModel('', '', 0));
       this.router.navigateByUrl(UrlsConstants.URL_LOGIN);
-    }
+    } 
   }
-
 }

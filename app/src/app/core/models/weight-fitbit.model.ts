@@ -20,8 +20,11 @@ export class WeightGoalFitbitResponseModel {
     weight: number;
     startDate: string;
     startWeight: number;
-    constructor(date: Date, wgoal: number) {
+    constructor(date: Date, wgoal: number, weight: number = -1) {
         this.startDate = Moment(date).format(Constants.FORMAT_DATE_FITBIT);
         this.startWeight = wgoal;
+        if (weight !== -1) {
+            this.weight = weight;
+        }
     }
 }

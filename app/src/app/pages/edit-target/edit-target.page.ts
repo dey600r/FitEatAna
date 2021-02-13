@@ -12,7 +12,7 @@ import { UrlsConstants, Constants, GoalsEnum, GoalsTypeEnum } from '@utils/index
 import {
   BaseFatFitbitResponseModel, BaseFatGoalFitbitResponseModel, BaseWeightGoalFitbitResponseModel,
   FatFitbitRequestModel, WeightFitbitRequestModel, WeightGoalFitbitResponseModel,
-  UserFatModel, UserGoalModel, FatGoalFitbitResponseModel
+  UserFatModel, UserGoalModel, FatGoalFitbitResponseModel, UserWeightModel
 } from '@models/index';
 
 // SERVICES
@@ -105,16 +105,16 @@ export class EditTargetPage implements OnInit {
   saveAndLoad(indexSlide) {
     switch (indexSlide) {
       case 2:
-        this.saveWeightGoal();
-        break;
-      case 3:
-        this.saveFatGoal();
-        break;
-      case 4:
         this.saveWeight();
         break;
-      case 5:
+      case 3:
         this.saveFat();
+        break;
+      case 4:
+        this.saveWeightGoal();
+        break;
+      case 5:
+        this.saveFatGoal();
         break;
     }
     this.storage.set(Constants.STORAGE_USER_GOAL, this.userGoal);
@@ -166,7 +166,7 @@ export class EditTargetPage implements OnInit {
       this.userGoal.weight.startDate = new Date();
       this.loginFitbitService.postFitbit(this.loginFitbitService.getURLApi(Constants.URL_FITBIT_UPDATE_WEIGHT_GOAL),
         new WeightGoalFitbitResponseModel(this.userGoal.weight.startDate,
-          this.userGoal.weight.goalWeight)).then((value: Observable<any[]>) => {
+          this.userGoal.weight.goalWeight, this.userGoal.weight.weight)).then((value: Observable<any[]>) => {
         if (value) {
           value.subscribe((data: any) => {
             console.log('SAVE WEIGHT GOAL ' + data);
@@ -185,6 +185,7 @@ export class EditTargetPage implements OnInit {
         .replace('{end-date}', this.calendarService.getDateFormatFitbit(new Date()));
       this.loginFitbitService.getFitbit(url).then((result: Observable<any>) => {
         result.subscribe((value: BaseFatFitbitResponseModel) => {
+          this.userGoal.fat.percentageFat = 0;
           if (value && value.fat && value.fat.length > 0) {
             const lastFat: FatFitbitRequestModel = value.fat[value.fat.length - 1];
             this.userGoal.fat.date = new Date(lastFat.date);
@@ -202,12 +203,14 @@ export class EditTargetPage implements OnInit {
     this.loginFitbitService.getFitbit(url).then((result: Observable<any>) => {
       result.subscribe((value: any) => {
           if (type === GoalsTypeEnum.FAT) {
+            this.userGoal.fat.goalPercentageFat = 0;
             const goalFat: BaseFatGoalFitbitResponseModel = (value as BaseFatGoalFitbitResponseModel);
             if (goalFat && goalFat.goal && goalFat.goal.fat) {
               this.userGoal.fat.goalPercentageFat = this.commonService.formatDecimal(goalFat.goal.fat);
               this.changedFatGoal = false;
             }
           } else {
+            this.userGoal.weight = new UserWeightModel();
             const goalWeight: BaseWeightGoalFitbitResponseModel = (value as BaseWeightGoalFitbitResponseModel);
             if (goalWeight && goalWeight.goal && goalWeight.goal.weight) {
               this.userGoal.weight.goalWeight = this.commonService.formatDecimal(goalWeight.goal.startWeight);

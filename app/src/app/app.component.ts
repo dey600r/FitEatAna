@@ -30,7 +30,6 @@ export class AppComponent {
       // CONFIGURATION
       this.statusBar.styleBlackTranslucent();
       this.splashScreen.hide();
-
     });
   }
 }

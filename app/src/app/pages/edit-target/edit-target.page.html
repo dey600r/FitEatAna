@@ -26,10 +26,26 @@
 
     <ion-slide>
       <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
+      <h2>{{ 'TARGET.titleWeight' | translate}}</h2>
+      <ion-input type="number" [(ngModel)]="userGoal.weight.weight" 
+        (ionInput)="changedWeight = true" min=20 max=300 step="0.01"></ion-input>
+      <ion-button fill="clear" (click)="goNext(2)">{{ 'COMMON.CONTINUE' | translate }} <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
+      <h2>{{ 'TARGET.titleFat' | translate}}</h2>
+      <ion-input type="number" [(ngModel)]="userGoal.fat.percentageFat"
+        (ionInput)="changedFat = true" min=5 max=75 step="0.01"></ion-input>
+      <ion-button fill="clear" (click)="goNext(3)">{{ 'COMMON.CONTINUE' | translate }} <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
       <h2>{{ 'TARGET.titleWeightGoal' | translate}}</h2>
       <ion-input type="number" [(ngModel)]="userGoal.weight.goalWeight"
         (ionInput)="changedWeightGoal = true" min=20 max=200 step="0.01"></ion-input>
-      <ion-button fill="clear" (click)="goNext(2)">{{ 'COMMON.CONTINUE' | translate }} <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+      <ion-button fill="clear" (click)="goNext(4)">{{ 'COMMON.CONTINUE' | translate }} <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 
     <ion-slide>
@@ -38,22 +54,6 @@
       <p>{{ 'TARGET.descriptionFatGoal' | translate}}</p>
       <ion-input type="number" [(ngModel)]="userGoal.fat.goalPercentageFat"
         (ionInput)="changedFatGoal = true" min=5 max=75 step="0.01"></ion-input>
-      <ion-button fill="clear" (click)="goNext(3)">{{ 'COMMON.CONTINUE' | translate }} <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
-    </ion-slide>
-
-    <ion-slide>
-      <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
-      <h2>{{ 'TARGET.titleWeight' | translate}}</h2>
-      <ion-input type="number" [(ngModel)]="userGoal.weight.weight" 
-        (ionInput)="changedWeight = true" min=20 max=300 step="0.01"></ion-input>
-      <ion-button fill="clear" (click)="goNext(4)">{{ 'COMMON.CONTINUE' | translate }} <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
-    </ion-slide>
-
-    <ion-slide>
-      <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
-      <h2>{{ 'TARGET.titleFat' | translate}}</h2>
-      <ion-input type="number" [(ngModel)]="userGoal.fat.percentageFat"
-        (ionInput)="changedFat = true" min=5 max=75 step="0.01"></ion-input>
       <ion-button fill="clear" (click)="finish()">{{ 'COMMON.FINISH' | translate }} <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 

@@ -37,4 +37,8 @@ export class LoginPage implements OnInit {
     this.loginFitbitService.loginWithFitbit();
   }
 
+  signUpWithFitbit() {
+    this.loginFitbitService.signUpWithFitbit();
+  }
+
 }
