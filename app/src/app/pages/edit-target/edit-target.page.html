@@ -13,44 +13,48 @@
     <ion-slide>
       <div class="slide">
         <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
-        <h2>Voy a ...</h2>
+        <h2>{{ 'TARGET.titleGoal' | translate }}</h2>
         <ion-list>
           <ion-item *ngFor="let item of listGoals">
             <ion-label>{{ item.title | translate }}</ion-label>
             <ion-toggle slot="start" color="sky" [(ngModel)]="item.checked" (click)="toggleChange(item.value)"></ion-toggle>
           </ion-item>
         </ion-list>
-        <ion-button fill="clear" (click)="goNext(1)">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+        <ion-button fill="clear" (click)="goNext(1)">{{ 'COMMON.CONTINUE' | translate }} <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
       </div>
     </ion-slide>
 
     <ion-slide>
       <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
-      <h2>¿Cual es tu peso objetivo?</h2>
-      <ion-input type="number" [(ngModel)]="userGoal.goalWeight"></ion-input>
-      <ion-button fill="clear" (click)="goNext(2)">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+      <h2>{{ 'TARGET.titleWeight' | translate}}</h2>
+      <ion-input type="number" [(ngModel)]="userGoal.weight.weight" 
+        (ionInput)="changedWeight = true" min=20 max=300 step="0.01"></ion-input>
+      <ion-button fill="clear" (click)="goNext(2)">{{ 'COMMON.CONTINUE' | translate }} <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 
     <ion-slide>
       <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
-      <h2>¿Tienes un porcentaje de masa como objetivo?</h2>
-      <p>Según tu género, el rango normal de grasa corporal es de 20-31%</p>
-      <ion-input type="number" [(ngModel)]="userGoal.goalPercentageFat"></ion-input>
-      <ion-button fill="clear" (click)="goNext(3)">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+      <h2>{{ 'TARGET.titleFat' | translate}}</h2>
+      <ion-input type="number" [(ngModel)]="userGoal.fat.percentageFat"
+        (ionInput)="changedFat = true" min=5 max=75 step="0.01"></ion-input>
+      <ion-button fill="clear" (click)="goNext(3)">{{ 'COMMON.CONTINUE' | translate }} <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 
     <ion-slide>
       <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
-      <h2>¿Cual es tu peso actual?</h2>
-      <ion-input type="number" [(ngModel)]="userGoal.weight"></ion-input>
-      <ion-button fill="clear" (click)="goNext(4)">Continue <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+      <h2>{{ 'TARGET.titleWeightGoal' | translate}}</h2>
+      <ion-input type="number" [(ngModel)]="userGoal.weight.goalWeight"
+        (ionInput)="changedWeightGoal = true" min=20 max=200 step="0.01"></ion-input>
+      <ion-button fill="clear" (click)="goNext(4)">{{ 'COMMON.CONTINUE' | translate }} <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 
     <ion-slide>
       <ion-icon class="icon-size-step" src="../../../assets/icon/bascula.svg"></ion-icon>
-      <h2>¿Cual es tu porcentaje de grasa actual?</h2>
-      <ion-input type="number" [(ngModel)]="userGoal.percentageFat"></ion-input>
-      <ion-button fill="clear" (click)="finish()">Finish <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+      <h2>{{ 'TARGET.titleFatGoal' | translate}}</h2>
+      <p>{{ 'TARGET.descriptionFatGoal' | translate}}</p>
+      <ion-input type="number" [(ngModel)]="userGoal.fat.goalPercentageFat"
+        (ionInput)="changedFatGoal = true" min=5 max=75 step="0.01"></ion-input>
+      <ion-button fill="clear" (click)="finish()">{{ 'COMMON.FINISH' | translate }} <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
 
   </ion-slides>

@@ -5,7 +5,7 @@ import { Platform } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 
 // UTILS
-import { RoutesConstants } from '@utils/index';
+import { UrlsConstants } from '@utils/index';
 
 @Component({
   selector: 'app-target',
@@ -14,8 +14,8 @@ import { RoutesConstants } from '@utils/index';
 })
 export class TargetPage {
 
-  readonly URL_HOME = RoutesConstants.URL_HOME;
-  readonly URL_EDIT_TARGET = RoutesConstants.URL_EDIT_TARGET;
+  readonly URL_HOME = UrlsConstants.URL_HOME;
+  readonly URL_EDIT_TARGET = UrlsConstants.URL_EDIT_TARGET;
 
   constructor(private platform: Platform,
               private translator: TranslateService) {

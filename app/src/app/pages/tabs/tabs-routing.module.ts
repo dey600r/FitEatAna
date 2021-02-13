@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
 
-import { RoutesConstants } from '@utils/index';
+import { RoutesConstants, UrlsConstants } from '@utils/index';
 
 import { UserFitbitGuard } from '@guards/index';
 
@@ -13,23 +13,20 @@ const routes: Routes = [
     children: [
       {
         path: RoutesConstants.HOME,
-        loadChildren: () => import('../../../pages/home/home.module').then(m => m.HomePageModule)
+        loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
       },
       {
         path: RoutesConstants.TARGET,
-        loadChildren: () => import('../../../pages/target/target.module').then(m => m.TargetPageModule),
+        loadChildren: () => import('./target/target.module').then(m => m.TargetPageModule),
         canActivate: [ UserFitbitGuard ]
       },
       {
         path: RoutesConstants.PROFILE,
-        loadChildren: () => import('../../../pages/profile/profile.module').then(m => m.ProfilePageModule),
+        loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule),
         canActivate: [ UserFitbitGuard ]
       },
-      {
-        path: '',
-        redirectTo: RoutesConstants.URL_HOME,
-        pathMatch: 'full'
-      }
+      { path: '', redirectTo: UrlsConstants.URL_HOME, pathMatch: 'full' },
+      { path: '**', redirectTo: UrlsConstants.URL_HOME }
     ]
   }
 ];

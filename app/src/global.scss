@@ -117,3 +117,26 @@ ion-router-link {
 ion-title.title-large {
     font-size: 2.8em;
 }
+
+ion-card.horizontal-card {
+    --background: white;
+    margin: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 20%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+ion-card.horizontal-card ion-icon.card-icon {
+    display: block;
+    width: 72px;
+    height: 72px;
+}
+
+ion-card.horizontal-card > *:nth-child(2) {
+    flex: 1 1 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}

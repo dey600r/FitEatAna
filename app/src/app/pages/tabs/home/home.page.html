@@ -20,7 +20,7 @@
   <div class="content-card">
     <div class="content-card-graphic">
       <ion-icon color="sky" slot="center" size="large" name="stats-chart-outline"></ion-icon>
-      <ion-title size="large" color="sky">Vas Genial</ion-title>
+      <ion-card-title size="large" color="sky">Vas Genial</ion-card-title>
       <div class="content-column">
         <ion-title size="small">924</ion-title>
         <ion-icon size="small" name="fast-food-outline"></ion-icon>
@@ -30,16 +30,25 @@
     </div>
   </div>
 
-  <div class="content-card">
-    <div class="content-column">
-      <ion-icon color="sky" size="large" name="logo-apple"></ion-icon>
-      <div class="content-row">
-        <ion-title size="large">924 cal consumidas</ion-title>
-        <ion-title size="small">1676 cal restantes</ion-title>
+  <ion-card class="horizontal-card" >
+      <ion-icon class="card-icon" [routerLink]="[URL_FEEDING]" src="../../../assets/icon/calories-progress.svg"></ion-icon>
+      <div class="card-content" [routerLink]="[URL_FEEDING]">
+        <ion-card-title size="large">924 cal consumidas</ion-card-title>
+        <ion-card-subtitle size="small">1676 cal restantes</ion-card-subtitle>
       </div>
-      <ion-buttons slot="end">
-        <ion-button (click)="click()"><ion-icon slot="icon-only" size="large" name="add-outline" ></ion-icon></ion-button>
-      </ion-buttons>
-    </div>
-  </div>
+      <ion-button fill="clear" color="sky" [routerLink]="[URL_FOOD_LOGS]">
+        <ion-icon slot="icon-only" size="large" name="add-outline"></ion-icon>
+      </ion-button>
+  </ion-card>
+  
+  <ion-card class="horizontal-card">
+      <ion-icon class="card-icon" src="../../../assets/icon/weight-progress.svg"></ion-icon>
+      <div class="card-content">
+        <ion-card-title size="large">924 cal consumidas</ion-card-title>
+        <ion-card-subtitle ssize="small">1676 cal restantes</ion-card-subtitle>
+      </div>
+        <ion-button fill="clear" color="sky">
+          <ion-icon slot="icon-only" size="large" name="add-outline"></ion-icon>
+        </ion-button>
+  </ion-card>
 </ion-content>

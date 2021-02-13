@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="72" height="72" viewBox="0 0 72 72">
+    <defs>
+        <filter id="zq61ptdnla" width="103.8%" height="112.5%" x="-1.9%" y="-4.5%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.200666521 0"/>
+        </filter>
+        <filter id="uc9z7szasg">
+            <feColorMatrix in="SourceGraphic" values="0 0 0 0 0.768627 0 0 0 0 0.839216 0 0 0 0 0.000000 0 0 0 1.000000 0"/>
+        </filter>
+        <circle id="hbsqqq5g0c" cx="36" cy="36" r="36"/>
+        <circle id="su2k8zxlie" cx="36" cy="36" r="36"/>
+        <path id="s03suz86ob" d="M20 334H392V446H20z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <path fill="#FAFAFA" d="M0 0H412V732H0z" transform="translate(-40 -353)"/>
+            <g transform="translate(-40 -353)">
+                <use fill="#000" filter="url(#zq61ptdnla)" xlink:href="#s03suz86ob"/>
+                <use fill="#FFF" xlink:href="#s03suz86ob"/>
+            </g>
+            <g>
+                <g fill="#C4D600" fill-opacity=".204" fill-rule="nonzero" transform="translate(-40 -353) translate(40 353)">
+                    <circle cx="36" cy="36" r="36"/>
+                </g>
+                <g transform="translate(-40 -353) translate(40 353)">
+                    <mask id="xfq7d1zq0d" fill="#fff">
+                        <use xlink:href="#hbsqqq5g0c"/>
+                    </mask>
+                    <circle cx="36" cy="36" r="32" fill="#FFF" fill-rule="nonzero" mask="url(#xfq7d1zq0d)"/>
+                </g>
+                <g transform="translate(-40 -353) translate(40 353)">
+                    <mask id="4g3tvqjpbf" fill="#fff">
+                        <use xlink:href="#su2k8zxlie"/>
+                    </mask>
+                    <path stroke="#C4D600" stroke-linecap="round" stroke-linejoin="round" stroke-opacity=".395" stroke-width="4" d="M34.05 16.094C40.32 11.164 47.272 8.7 54.91 8.7c7.636 0 14.683 2.465 21.14 7.394" mask="url(#4g3tvqjpbf)" transform="rotate(39 55.05 12.397)"/>
+                </g>
+            </g>
+            <g filter="url(#uc9z7szasg)" transform="translate(-40 -353)">
+                <g>
+                    <path fill="#000" fill-rule="nonzero" d="M29.686 11.161c-2.615-.057-5.047 1.063-7.073 2.882-.344-2.371-1.271-4.273-1.271-4.273C32.309 8.285 29.243.017 29.243.017c-7.738-.328-9.239 4.304-9.399 7.344-2.385-2.55-5.077-4.009-6.202-4.518-1.071-.484-2.329.074-2.775 1.159-.446 1.088.094 2.284 1.161 2.774 1.411.649 5.841 2.251 7.181 7.409-2.058-1.907-4.548-3.024-7.231-3.024-7.066 0-13.598 5.845-11.318 17.281 1.866 9.357 8.678 17.28 15.744 17.28 1.842 0 3.291-.528 4.427-1.476 1.138.946 2.586 1.484 4.428 1.475 7.307-.045 13.542-7.505 15.744-17.279 2.229-9.89-2.932-17.099-11.317-17.281z" transform="translate(55 367)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

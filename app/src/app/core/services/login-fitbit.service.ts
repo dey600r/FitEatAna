@@ -14,7 +14,7 @@ import { CommonService } from './common.service';
 // UTILS
 import { UserTokenModel, TokenFitbitModel } from '@models/index';
 import { environment } from '@environment/environment';
-import { Constants, RoutesConstants } from '@utils/index';
+import { Constants, UrlsConstants } from '@utils/index';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -46,7 +46,7 @@ export class LoginFitbitService {
     await this.loadUserToken();
 
     if (this.userToken && this.userToken.isAuthorizated() && this.userToken.isAuthenticated()) {
-      this.router.navigateByUrl(RoutesConstants.URL_HOME);
+      this.router.navigateByUrl(UrlsConstants.URL_HOME);
     } else if (this.userToken && this.userToken.isAuthorizated() && !this.userToken.isAuthenticated()) {
       this.authenticationWithFitbit();
     } else {
@@ -62,11 +62,19 @@ export class LoginFitbitService {
     await this.loadUserToken();
 
     if (this.userToken === null || !this.userToken.isAuthorizated()) {
-      this.router.navigateByUrl(RoutesConstants.URL_LOGIN);
+      this.router.navigateByUrl(UrlsConstants.URL_LOGIN);
       return Promise.resolve(false);
     }
 
     return Promise.resolve(true);
+  }
+
+  signUpWithFitbit() {
+    if (this.isDevice()) {
+      const browser = this.iab.create(environment.fitbit.urlSignUp);
+    } else {
+      window.open(environment.fitbit.urlSignUp, '_blank');
+    }
   }
 
   private authorizationWithFitbit() {
@@ -74,7 +82,6 @@ export class LoginFitbitService {
     if (this.isDevice()) {
 
       const browser = this.iab.create(url);
-      // browser.show();
 
       browser.on('loadstart').subscribe(event => {
         if (event.url && event.url.includes('?code=')) {
@@ -85,7 +92,7 @@ export class LoginFitbitService {
       });
 
       browser.on('exit').subscribe(event => {
-        this.router.navigateByUrl(RoutesConstants.URL_HOME);
+        this.router.navigateByUrl(UrlsConstants.URL_HOME);
       });
     } else {
       window.open(url, '_self');
@@ -95,11 +102,11 @@ export class LoginFitbitService {
   private getAuthorizationUrl(): string {
     this.userToken =  new UserTokenModel('', this.commonService.getRandomKey(), Constants.AUTHORIZATION_EXPIRE_IN);
     this.storage.set(Constants.STORAGE_USER_TOKEN, this.userToken);
-    let url = `${environment.fitbit.urlAuthorization}?`;
+    let url = `${this.getURLAuthorization()}?`;
     url += `client_id=${environment.fitbit.clientId}&`;
     url += `expires_in=${Constants.AUTHORIZATION_EXPIRE_IN}`;
     url += `redirect_uri=${environment.fitbit.redirectUri}&response_type=code&`;
-    url += `scope=activity%20social%20profile&`;
+    url += `scope=weight%20nutrition%20profile%20nutrition&`;
     url += `code_challange=${this.commonService.getCryptoKey(this.userToken.codeVerifier)}&`;
     url += `code_challenge_method=S256`;
     return url;
@@ -109,25 +116,31 @@ export class LoginFitbitService {
   // AUTENTICATION - TOKEN
   // ------------------------------------------------------
 
-  async authenticationWithFitbit() {
+  async authenticationWithFitbit(): Promise<boolean> {
     await this.loadUserToken();
 
-    if (!this.isDevice() && this.activatedRouter.snapshot.queryParams.code) {
-      this.userToken.codeAuthorization = this.activatedRouter.snapshot.queryParams.code;
-    }
+    return new Promise<boolean>(resolve => {
+      if (!this.isDevice() && this.activatedRouter.snapshot.queryParams.code) {
+        this.userToken.codeAuthorization = this.activatedRouter.snapshot.queryParams.code;
+      }
 
-    if (this.userToken.isAuthorizated() && this.userToken.isAuthenticated()) {
-      this.userTokenBehavior.next(this.userToken);
-    } else if (this.userToken.isAuthorizated() && !this.userToken.isAuthenticated()) {
-      this.getTokenFitbit(this.userToken.codeAuthorization, this.userToken.codeVerifier).subscribe((token: TokenFitbitModel) => {
-        this.setStorageUserToken(token);
-      }, error => {
-        this.controlErrors(error.error);
-      });
-    } else {
-      console.log('AUTHORIZATION CODE NOT FOUND');
-      this.router.navigateByUrl(RoutesConstants.URL_LOGIN);
-    }
+      if (this.userToken.isAuthorizated() && this.userToken.isAuthenticated()) {
+        this.userTokenBehavior.next(this.userToken);
+        resolve(true);
+      } else if (this.userToken.isAuthorizated() && !this.userToken.isAuthenticated()) {
+        this.getTokenFitbit(this.userToken.codeAuthorization, this.userToken.codeVerifier).subscribe((token: TokenFitbitModel) => {
+          this.setStorageUserToken(token);
+          resolve(true);
+        }, error => {
+          this.controlErrors(error.error);
+          resolve(false);
+        });
+      } else {
+        console.log('AUTHORIZATION CODE NOT FOUND');
+        this.router.navigateByUrl(UrlsConstants.URL_LOGIN);
+        resolve(false);
+      }
+    });
   }
 
   private getTokenFitbit(codeAuth: string, codeVerifier: string): Observable<any> {
@@ -144,28 +157,33 @@ export class LoginFitbitService {
       expires_in: Constants.AUTENTICATION_EXPIRE_IN
     };
 
-    return this.httpService.post(environment.fitbit.urlToken, body, head, param);
+    return this.httpService.post(this.getURLAutentication(), body, head, param);
   }
 
   private async refreshToken(): Promise<boolean> {
-    const body: any = this.getHeaderToken();
-    const head = new HttpHeaders(body);
+    if (this.userToken.refreshToken) {
+      const body: any = this.getHeaderToken();
+      const head = new HttpHeaders(body);
 
-    const param: any = {
-      grant_type: 'refresh_token',
-      refresh_token : this.userToken.refreshToken,
-      expires_in: Constants.AUTENTICATION_EXPIRE_IN
-    };
+      const param: any = {
+        grant_type: 'refresh_token',
+        refresh_token : this.userToken.refreshToken,
+        expires_in: Constants.AUTENTICATION_EXPIRE_IN
+      };
 
-    return await new Promise<boolean>( resolve => {
-      this.httpService.post(environment.fitbit.urlToken, body, head, param).subscribe((token: TokenFitbitModel) => {
-        this.setStorageUserToken(token);
-        resolve(true);
-      }, error => {
-        this.controlErrors(error.error);
-        resolve(false);
+      return await new Promise<boolean>( resolve => {
+        this.httpService.post(this.getURLAutentication(), body, head, param).subscribe((token: TokenFitbitModel) => {
+          this.setStorageUserToken(token);
+          resolve(true);
+        }, error => {
+          this.controlErrors(error.error);
+          resolve(false);
+        });
       });
-    });
+    } else {
+      console.log('REFRESH TOKEN NOT FOUND');
+      this.router.navigateByUrl(UrlsConstants.URL_LOGIN);
+    }
   }
 
   private setStorageUserToken(data: any) {
@@ -186,22 +204,50 @@ export class LoginFitbitService {
   // GET API FITBIT
   // ------------------------------------------------------
 
-  async getFitbit(url: string): Promise<any> {
+  async getFitbit(url: string): Promise<Observable<any>> {
+    return this.isValidAndRefreshToGetOrPost(new Promise<Observable<any[]>>( resolve => {
+      resolve(this.httpService.get(url, this.getHeaderApiRequest()));
+    }));
+  }
+
+  async postFitbit(url: string, param: any): Promise<Observable<any>> {
+    return this.isValidAndRefreshToGetOrPost(new Promise<Observable<any[]>>( resolve => {
+      resolve(this.httpService.post(url, {}, this.getHeaderApiRequest(), param));
+    }));
+  }
+
+  private getHeaderApiRequest(): HttpHeaders {
+    return new HttpHeaders({
+      Authorization: `${this.userToken.tokenType}  ${this.userToken.token}`,
+    });
+  }
+
+  private async isValidAndRefreshToGetOrPost(promise: Promise<any>): Promise<any> {
     if (!this.userToken.isAuthorizated()) {
-      this.router.navigateByUrl(RoutesConstants.URL_LOGIN);
+      this.router.navigateByUrl(UrlsConstants.URL_LOGIN);
       return Promise.resolve(null);
     }
     if (!this.userToken.isAuthenticated() && !await this.refreshToken()) {
         return Promise.resolve(null);
     }
 
-    return new Promise<Observable<any[]>>( resolve => {
-      const head = new HttpHeaders({
-        Authorization: `${this.userToken.tokenType}  ${this.userToken.token}`,
-      });
-      resolve(this.httpService.get(url, head));
-    });
+    return promise;
+  }
 
+  // ------------------------------------------------------
+  // GET URLS
+  // ------------------------------------------------------
+
+  private getURLAuthorization(): string {
+    return `${environment.fitbit.urlApi}${environment.fitbit.urlAuthorization}`;
+  }
+
+  private getURLAutentication(): string {
+    return `${environment.fitbit.urlApi}${environment.fitbit.urlToken}`;
+  }
+
+  getURLApi(api: string): string {
+    return `${environment.fitbit.urlApi}${api}`;
   }
 
   // ------------------------------------------------------
@@ -220,11 +266,15 @@ export class LoginFitbitService {
       } else if (error.errors[0].errorType === 'expired_token' &&
         error.errors[0].message.includes('Access token expired')) {
           this.refreshToken();
+      } else {
+        console.log('Error response: ' + error.errors[0].message);
+        this.storage.set(Constants.STORAGE_USER_TOKEN, new UserTokenModel('', '', 0));
+        this.router.navigateByUrl(UrlsConstants.URL_LOGIN);
       }
     } else {
       console.log('Error no controlado');
-      this.router.navigateByUrl(RoutesConstants.URL_LOGIN);
-    }
+      this.storage.set(Constants.STORAGE_USER_TOKEN, new UserTokenModel('', '', 0));
+      this.router.navigateByUrl(UrlsConstants.URL_LOGIN);
+    } 
   }
-
 }

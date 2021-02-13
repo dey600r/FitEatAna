@@ -5,10 +5,21 @@
         "PROFILE": "Perfil",
         "LOSE": "Perder",
         "GAIN": "Ganar",
-        "KEEP": "Mantener"
+        "KEEP": "Mantener",
+        "CONTINUE": "Continuar",
+        "FINISH": "Finalizar"
+    },
+    "FOOD": {
+        "addFood": "Registrar alimento"
     },
     "TARGET": {
-        "editTarget": "Editar objetivo"
+        "editTarget": "Editar objetivo",
+        "titleGoal": "Voy a ...",
+        "titleWeightGoal": "¿Cuál es tu peso objetivo?",
+        "titleWeight": "¿Cuál es tu peso actual?",
+        "titleFatGoal": "¿Tienes un porcentaje de masa como objetivo?",
+        "descriptionFatGoal": "Según tu género, el rango normal de grasa corporal es de 20-31%",
+        "titleFat": "¿Cuál es tu porcentaje de grasa actual?"
     },
     "ALERT" : {
         "INFO": "Info"

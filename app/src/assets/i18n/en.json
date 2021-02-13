@@ -5,10 +5,21 @@
         "PROFILE": "Profile",
         "LOSE": "Lose",
         "GAIN": "Gain",
-        "KEEP": "Keep"
+        "KEEP": "Keep",
+        "CONTINUE": "Continue",
+        "FINISH": "Finish"
+    },
+    "FOOD": {
+        "addFood": "Add food"
     },
     "TARGET": {
-        "editTarget": "Edit target"
+        "editTarget": "Edit target",
+        "titleGoal": "I will ...",
+        "titleWeightGoal": "What is your target weight?",
+        "titleWeight": "¿Cuál es tu peso actual?",
+        "titleFatGoal": "Do you have a target mass percentage?",
+        "descriptionFatGoal": "Depending on your gender, the normal range of body fat is 20-31%.",
+        "titleFat": "What is your current fat percentage?"
     },
     "ALERT" : {
         "INFO": "Info"
