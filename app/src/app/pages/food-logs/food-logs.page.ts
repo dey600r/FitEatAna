@@ -17,6 +17,10 @@ export class FoodLogsPage implements OnInit {
   URL_HOME = UrlsConstants.URL_HOME;
   URL_ADD_FOOD = UrlsConstants.URL_ADD_FOOD;
 
+  activeSearch = false;
+
+  foods: any[] = [];
+
   constructor(private platform: Platform,
               private translator: TranslateService) {
     this.platform.ready().then(() => {
@@ -32,6 +36,10 @@ export class FoodLogsPage implements OnInit {
 
   segmentChanged(event: any) {
     // event.detail.value
+  }
+
+  searchFoodFitbit() {
+    this.foods = [...this.foods, { name: 'Pechuga de pavo', desc: '130 gramos, 127 cal'}];
   }
 
 }

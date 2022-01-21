@@ -4,9 +4,15 @@
       <ion-back-button color="snow" icon="chevron-back-outline" [defaultHref]="URL_HOME"></ion-back-button>
       <ion-title color="snow">{{ 'FOOD.addFood' | translate }}</ion-title>
     </ion-buttons>
+    <ion-searchbar *ngIf="activeSearch" (ionChange)="searchFoodFitbit()"></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button color="snow" (click)="this.activeSearch = !this.activeSearch">
+        <ion-icon color="snow" slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
   <!-- SEGMENT -->
-  <ion-segment scrollable="false" (ionChange)="segmentChanged($event)" color="sky">
+  <ion-segment *ngIf="!activeSearch" scrollable="false" (ionChange)="segmentChanged($event)" color="sky">
     <ion-segment-button *ngFor="let m of [ 'Frecuente', 'Reciente', 'Personalizado' ]; let i = index;" layout="icon-start">
       <ion-label color="snow">{{ m }}</ion-label>
     </ion-segment-button>
@@ -18,17 +24,9 @@
     <ion-button color="sky" fill="clear" [routerLink]="[URL_ADD_FOOD]">Añadir elemento personalizado</ion-button> 
   </ion-buttons>
   <ion-list>
-    <ion-item>
-      <ion-title>Pechuga de pavo</ion-title>
-      <p>130 gramos, 127 cal</p>
-    </ion-item>
-    <ion-item>
-      <ion-title>Pechuga de pavo</ion-title>
-      <p>130 gramos, 127 cal</p>
-    </ion-item>
-    <ion-item>
-      <ion-title>Pechuga de pavo</ion-title>
-      <p>130 gramos, 127 cal</p>
+    <ion-item *ngFor="let food of foods">
+      <ion-title>{{food.name}}</ion-title>
+      <p>{{food.desc}}</p>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -13,7 +13,10 @@ const fitbitRoutes = Router();
 //       tokenHost: 'https://www.fitbit.com/oauth2/authorize'
 //     }
 //   };
-   
+
+fitbitRoutes.get('/test', (req: Request, res: Response ) => {
+  res.send('HOLA');
+});
 
 
 fitbitRoutes.get('/auth', (req: Request, res: Response ) => {
